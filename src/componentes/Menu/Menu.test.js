@@ -16,3 +16,11 @@ test('Deve renderizar uma lista de links', () => {
 
     expect(listaDeLinks).toHaveLength(4)
 })
+
+test('Não deve renderizar o link para Extrato', () => {
+    render(<Menu />)
+
+    const linkExtrado = screen.queryByText('Extrato')
+
+    expect(linkExtrado).not.toBeInTheDocument()
+})
