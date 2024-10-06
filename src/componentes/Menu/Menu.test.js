@@ -9,3 +9,10 @@ test('Deve renderizar um link para a página inicial', () => {
     expect(linkPaginaInicial).toBeInTheDocument()
 })
 
+test('Deve renderizar uma lista de links', () => {
+    render(<Menu />)
+
+    const listaDeLinks = screen.getAllByRole('link')
+
+    expect(listaDeLinks).toHaveLength(4)
+})
