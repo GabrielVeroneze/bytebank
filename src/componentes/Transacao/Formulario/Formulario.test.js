@@ -9,4 +9,12 @@ describe('Deve renderizar um campo de input', () => {
 
         expect(campoTexto).toBeInTheDocument()
     })
+
+    test('com o type number', () => {
+        render(<Formulario />)
+
+        const campoTexto = screen.getByPlaceholderText('Digite um valor')
+
+        expect(campoTexto).toHaveAttribute('type', 'number')
+    })
 })
