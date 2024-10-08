@@ -11,6 +11,17 @@ describe('Quando eu realizo uma transação', () => {
 
         expect(novoSaldo).toBe(150)
     })
+
+    test('Que é uma transferência, o saldo deve diminuir', () => {
+        const transacao = {
+            transacao: 'Transferência',
+            valor: 50,
+        }
+
+        const novoSaldo = calculaNovoSaldo(transacao, 100)
+
+        expect(novoSaldo).toBe(50)
+    })
 })
 
 test('Deve retornar o valor do saldo atualizado com o rendimento', () => {
