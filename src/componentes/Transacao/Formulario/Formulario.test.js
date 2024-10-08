@@ -40,3 +40,16 @@ test('Deve chamar um evento de onSubmit ao clicar em realizar transação', () =
 
     expect(realizarTransacao).toHaveBeenCalledTimes(1)
 })
+
+test('Deve ser possível selecionar uma opção do elemento select', () => {
+    render(<Formulario />)
+
+    const select = screen.getByTestId('select-opcoes')
+    const opcaoDefault = screen.getByRole('option', { name: 'Selecione um tipo de transação' })
+    const opcaoDeposito = screen.getByRole('option', { name: 'Depósito' })
+
+    userEvent.selectOptions(select, opcaoDeposito)
+
+    expect(opcaoDefault.selected).toBe(false)
+    expect(opcaoDeposito.selected).toBe(true)
+})
